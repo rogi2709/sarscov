@@ -7,26 +7,42 @@ import * as L from 'leaflet';
   templateUrl: './map.component.html',
   styleUrls: ['./map.component.scss'],
 })
-export class MapComponent implements AfterViewInit {
+export class MapComponent implements AfterViewInit,OnInit {
 
   private map:any;
+
+  public lat:number;
+  public lng:number;
+
+
+ 
 
    tiles = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
   maxZoom: 19,
   attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
 });
- circle = L.circle([40.480, 20.171], {
+ circle = L.circle([10.10,10.10], {
   color: 'red',
   fillColor: '#f03',
   fillOpacity: 0.5,
-  radius: 500
+  radius: 100000
 });
 
   private initMap(): void {
     this.map = L.map('map', {
-      center: [ 32.55, 40.43 ],
-      zoom: 3
+      center: [ 42.245, 15.271],
+      zoom:3
     });
+  }
+
+  private getLangLng(): void {
+    fetch("https://restcountries.eu/rest/v2/all")
+  .then(response => response.json())
+  .then(data => {
+    data.forEach(({ name,latlng }) =>
+      console.log("name :"+name+" coord: "+latlng)
+    );
+  });
   }
 
  
@@ -37,7 +53,15 @@ export class MapComponent implements AfterViewInit {
     this.initMap();
     this.tiles.addTo(this.map);
     this.circle.addTo(this.map);
+    this.circle.bindPopup("I am a circle.");
     
+  }
+
+  ngOnInit():void{
+    this.getLangLng();
+
+    
+
   }
 
 

@@ -21,6 +21,7 @@ import { NbEvaIconsModule } from '@nebular/eva-icons';
 
 
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -41,7 +42,7 @@ import { NbEvaIconsModule } from '@nebular/eva-icons';
     ChartsModule,
     NbThemeModule.forRoot({ name: 'default' }),
     NbLayoutModule,
-    NbEvaIconsModule
+    NbEvaIconsModule,
 
 
   ],

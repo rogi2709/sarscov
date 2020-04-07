@@ -42,16 +42,17 @@ body {
 		td {
 			/* Behave  like a "row" */
 			border: none;
-			border-bottom: 1px solid #eee;
+			border-bottom: 2px solid #eee;
 			position: relative;
 			padding-left: 50%;
+			background-color: none;
 		}
 
 		td:before {
 			/* Now like a table header */
 			position: absolute;
 			/* Top/left values mimic padding */
-			top: 0;
+			
 			left: 6px;
 			width: 45%;
 			padding-right: 10px;
@@ -74,5 +75,6 @@ body {
 		td:nth-of-type(8):before { content: "Critical"; }
 		td:nth-of-type(9):before { content: "CASES/1M"; }
 		td:nth-of-type(10):before { content: "DEATHS/1M"; }
-		td:nth-of-type(11):before { content: "First Case"; }
+		td:nth-of-type(11):before { content: "Total Tests"; }
+		td:nth-of-type(12):before { content: "Tests/1M"; }
 	}
