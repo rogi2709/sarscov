@@ -1,0 +1,94 @@
+
+<div class="container mt-3" style="border: 2px solid #f7f9fc; background: whitesmoke; width: 100%;
+position: relative;
+margin:0 auto;
+line-height: 1.4em;">
+This is a simple table that displays Coronavirus 19 cases across the world.
+For detailed information, check out WHO's(World Health Organization) website at this link:
+https://www.who.int/emergencies/diseases/novel-coronavirus-2019
+<br>
+Sources:https://github.com/ExpDev07/coronavirus-tracker-api
+
+
+
+</div>
+
+
+
+<div class="container mt-3">
+  <div class="row">
+    <div class="col-sm mt-3">
+      <p-card header="Infected" class="text-center" [style]="{'background-color': '#FFBB47'}">
+        <div><b>{{info.cases}}</b></div>
+      </p-card>
+    </div>
+    <div class="col-sm mt-3">
+      <p-card header="Recovered" [style]="{'background-color': '#47E7C6'}" class="text-center">
+        <div>{{info.recovered}}</div>
+      </p-card>
+    </div>
+    <div class="col-sm mt-3">
+      <p-card header="Deaths" [style]="{'background-color': '#FF6D47'}" class="text-center">
+        <div>{{info.deaths}}</div>
+      </p-card>
+    </div>
+  </div>
+</div>
+
+<div class="container mt-3">
+
+<table class="table table-striped table-bordered">
+    <thead role="rowgroup">
+      <tr role="row">
+        <th role="columnheader">Country</th>
+        <th role="columnheader">Cases</th>
+        <th role="columnheader">Today Cases</th>
+        <th role="columnheader">Deaths</th>
+        <th role="columnheader">Today Deaths</th>
+        <th role="columnheader">Recovered</th>
+        <th role="columnheader">Active</th>
+        <th role="columnheader">Critical</th>
+        <th role="columnheader">CASES/1M</th>
+        <th role="columnheader">DEATHS/1M</th>
+        <th role="columnheader">Total Tests</th>
+        <th role="columnheader">Tests/1M</th>
+      </tr>
+    </thead>
+    <tbody role="rowgroup">
+      <tr *ngFor="let t of tutto | paginate: {id: 'listing_pagination',itemsPerPage: 10,currentPage: page,totalItems: totalRec}">
+        <td role="cell">{{t.country}}</td>
+        <td role="cell">{{t.cases}}</td>
+        <td role="cell" style="background: 	#ffc94d;">+{{t.todayCases}}</td>
+        <td role="cell">{{t.deaths}}</td>
+        <td role="cell" style="background:#ff3d71">+{{t.todayDeaths}}</td>
+        <td role="cell" style="background: #2ce69b;">{{t.recovered}}</td>
+        <td role="cell">{{t.active}}</td>
+        <td role="cell">{{t.critical}}</td>
+        <td role="cell">{{t.casesPerOneMillion}}</td>
+        <td role="cell">{{t.deathsPerOneMillion}}</td>
+        <td role="cell">{{t.totalTests}}</td>
+        <td role="cell">{{t.testsPerOneMillion}}</td>
+      </tr> 
+    </tbody> 
+  </table>
+
+  <div class="d-flex justify-content-between p-2">
+      <pagination-controls  id="listing_pagination" maxSize="5" directionLinks="true" (pageChange)="page = $event"></pagination-controls>
+
+    </div>
+
+
+ 
+</div>
+
+
+
+  
+
+
+ 
+
+
+
+
+
