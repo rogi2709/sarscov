@@ -15,6 +15,7 @@ import { MapComponent } from './pages/map/map.component';
 import { ChartsModule } from 'ng2-charts';
 import { NbThemeModule, NbLayoutModule } from '@nebular/theme';
 import { NbEvaIconsModule } from '@nebular/eva-icons';
+import {FieldsetModule} from 'primeng/fieldset';
 
 
 
@@ -43,6 +44,7 @@ import { NbEvaIconsModule } from '@nebular/eva-icons';
     NbThemeModule.forRoot({ name: 'default' }),
     NbLayoutModule,
     NbEvaIconsModule,
+    FieldsetModule
 
 
   ],
